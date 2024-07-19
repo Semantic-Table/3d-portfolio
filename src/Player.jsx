@@ -7,7 +7,7 @@ export function Player() {
     camFollowMult={100}
     turnVelMultiplier={1}
     turnSpeed={100}
-    position={[14.5, 2, -8]}
+    position={[14.5, 4, 22]}
     mode="CameraBasedMovement"
   >
   </Ecctrl>

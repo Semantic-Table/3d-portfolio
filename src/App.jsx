@@ -5,6 +5,7 @@ import './App.css'
 import { Player } from './Player'
 import { World } from './World'
 import { useRef, useEffect } from 'react'
+import FresnelBall from './FresnelBall'
 /**
  * Keyboard control preset
  */
@@ -51,6 +52,7 @@ function App() {
           <OrbitControls />
           <Environment preset='city' environmentIntensity={0.4} />
           <Physics debug={false}>
+            <FresnelBall />
             <World />
             <Player />
           </Physics>

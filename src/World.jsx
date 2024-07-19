@@ -1,22 +1,22 @@
-import { useGLTF } from '@react-three/drei'
-import { Physics, RigidBody } from '@react-three/rapier'
-import { portalMaterial } from './material'
-import * as THREE from 'three'
-import { useFrame } from '@react-three/fiber'
+import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { RigidBody } from "@react-three/rapier";
+import * as THREE from "three";
+import { portalMaterial } from "./material";
 
 export function World(props) {
-  const { nodes, materials } = useGLTF('/portfolio.glb')
+  const { nodes, materials } = useGLTF("/portfolio.glb");
 
-  const portalGeometry = new THREE.CircleGeometry(1.8, 32)
+  const portalGeometry = new THREE.CircleGeometry(1.8, 32);
 
   useFrame((state) => {
-    const time = state.clock.getElapsedTime()
+    const time = state.clock.getElapsedTime();
 
-    portalMaterial.uniforms.uTime.value = time
-  })
+    portalMaterial.uniforms.uTime.value = time;
+  });
 
   return (
-    <RigidBody colliders='trimesh' type='fixed'>
+    <RigidBody colliders="trimesh" type="fixed">
       <group {...props} dispose={null}>
         <mesh
           castShadow
@@ -938,10 +938,9 @@ export function World(props) {
           material={materials.marble}
           position={[13.809, 2.498, 19.022]}
         />
-
       </group>
     </RigidBody>
-  )
+  );
 }
 
-useGLTF.preload('/portfolio.glb')
+useGLTF.preload("/portfolio.glb");
